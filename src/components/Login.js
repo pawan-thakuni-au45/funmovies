@@ -18,16 +18,19 @@ const Login = () => {
      </img>
      </div>
      <div>
-       <form className='bg-black absolute w-3/12 p-12 my-32 mx-auto right-0 left-0 text-white bg-opacity-80' >
+       <form onSubmit={(e)=>e.preventDefault()}
+       className='bg-black absolute w-3/12 p-12 my-32 mx-auto right-0 left-0 text-white bg-opacity-80' >
         <h1 className='py-4 font-bold text-3xl'>{ isSignInForm? "Sign In":"Sign Up"}</h1>
+
        { !isSignInForm &&(<input type="name" placeholder='Name' className='w-full p-2 m-4  rounded-xl'></input>)}
        <input type="email" placeholder='Email' className='w-full p-2 m-4 rounded-xl'></input>
-       <input type="password" placeholder='Password' className='w-full p-2 m-4 rounded-xl'></input>
+       <input type="password" placeholder='Password' className='w-full p-2 m-4 rounded-xl bg-gray-600'></input>
 
          
          
         <button className='w-full bg-red-800 py-4 m-4 rounded-lg'>{isSignInForm?"Sign In":"Sign Up"}</button>
         <p onClick={toggleIt} className='cursor-pointer'>{ isSignInForm?"Are you new to Netflix ? Sign Up now":"Already registerd? Sign In Now"}</p>
+        
        </form>
      </div>
      </div>
