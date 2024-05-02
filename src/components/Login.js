@@ -1,9 +1,21 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Header from './Header'
-import { Toggle } from 'material-ui'
+
+
 
 const Login = () => {
     const[isSignInForm,setIsSignInForm]=useState(true)
+
+    const email=useRef(null)
+    const password=useRef(null)
+
+    console.log(email)
+    console.log(password)
+    const handleClick=()=>{
+      
+      console.log(email)
+      console.log(password)
+    }
 
     const toggleIt=()=>{
         setIsSignInForm(!isSignInForm)
@@ -22,13 +34,17 @@ const Login = () => {
        className='bg-black absolute w-3/12 p-12 my-32 mx-auto right-0 left-0 text-white bg-opacity-80' >
         <h1 className='py-4 font-bold text-3xl'>{ isSignInForm? "Sign In":"Sign Up"}</h1>
 
-       { !isSignInForm &&(<input type="name" placeholder='Name' className='w-full p-2 m-4  rounded-xl'></input>)}
-       <input type="email" placeholder='Email' className='w-full p-2 m-4 rounded-xl'></input>
-       <input type="password" placeholder='Password' className='w-full p-2 m-4 rounded-xl bg-gray-600'></input>
+       { !isSignInForm &&(<input type="name" placeholder='Name' className='w-full p-2 m-4  rounded-xl'/>)}
+       <input 
+       ref={email}
+       type="email" placeholder='Email' className='w-full p-2 m-4 rounded-xl bg-gray-700'/>
+       <input 
+       ref={password}
+       type="password" placeholder='Password' className='w-full p-2 m-4 rounded-xl bg-gray-600'/>
 
          
          
-        <button className='w-full bg-red-800 py-4 m-4 rounded-lg'>{isSignInForm?"Sign In":"Sign Up"}</button>
+        <button className='w-full bg-red-800 py-4 m-4 rounded-lg' onClick={handleClick}>{isSignInForm?"Sign In":"Sign Up"}</button>
         <p onClick={toggleIt} className='cursor-pointer'>{ isSignInForm?"Are you new to Netflix ? Sign Up now":"Already registerd? Sign In Now"}</p>
         
        </form>
