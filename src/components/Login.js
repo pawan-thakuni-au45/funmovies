@@ -22,6 +22,14 @@ const Login = () => {
       console.log(password)
       const message=validation(email.current.value,password.current.value)
       setErrormsg(message)
+
+      if(message) return 
+
+      if(!isSignInForm){
+        
+      }
+
+     
       
     }
 
